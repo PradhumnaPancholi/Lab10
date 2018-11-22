@@ -1,4 +1,4 @@
-public class Book {
+public class Book implements Comparable<Book>{
     public String title, author;
     public int price;
 
@@ -31,5 +31,19 @@ public class Book {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String toString()
+    {
+        return String.format("%s written by %s costs %d",title ,author, price );
+    }
+
+    //compareTo method to compare price//
+    @Override
+    public int compareTo(Book book) {
+        if (this.getPrice() > book.getPrice() )
+            return 1;
+        else
+            return -1;
     }
 }
